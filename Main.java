@@ -1,10 +1,15 @@
 package Sutda;
 //package com.sist;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.*;
 import java.util.HashMap.*;
 
 import javax.swing.*;
+
 
 import oracle.net.aso.p;
 class SutdaGame
@@ -89,7 +94,7 @@ class SutdaGame
 
 
 
-public class Main extends JFrame{
+public class Main extends JFrame implements Runnable,ActionListener,MouseListener{
 	SutdaWindow sw = new SutdaWindow();
 	public Main()
 	{
@@ -123,6 +128,52 @@ public class Main extends JFrame{
 		} catch (Exception e) {
 		}
 		  Main m=new Main();
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		/*if (e.getSource() == sw.tf) {
+			String data = sw.tf.getText().trim();
+			if (data.length() < 1)
+				return;
+			//String color = sw.box.getSelectedItem().toString();
+			try {
+				sw.write((Function.WAITCHAT + "|" + data + "|" + color + "\n")
+						.getBytes());
+			} catch (Exception ex) {
+			}
+			sw.tf.setText("");
+		}*/
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

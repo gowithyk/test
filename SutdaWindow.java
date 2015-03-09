@@ -6,8 +6,11 @@ import javax.swing.*;
 
 public class SutdaWindow extends JPanel {
 	//JPanel[] playerPanel = new JPanel[5];
-	PlayerWindow pw;
-	JPanel CombiPanel; 
+	PlayerWindow[] pw = new PlayerWindow[5];
+	JPanel CombiPanel;
+	JTextPane ta;
+	JTextField tf;
+	JScrollBar bar; 
 	JButton[] b = new JButton[4]; 
 	Image back;
 	
@@ -15,44 +18,56 @@ public class SutdaWindow extends JPanel {
 	{
 		
 		setLayout(null);
-		/*for(int i=0;i<5;i++ )
+		for(int i=0;i<5;i++ )
 		{
-			playerPanel[i] = new JPanel();
-			playerPanel[i].setBackground(Color.black);
-		}*/
-		pw = new PlayerWindow();
+			pw[i] = new PlayerWindow();
+		}
+		
 		CombiPanel = new JPanel();
 		CombiPanel.setBackground(Color.black);
-		b[0] = new JButton("방만들기");
-		b[1] = new JButton("방들어가기");
-		b[2] = new JButton("게임신청");
-		b[3] = new JButton("쪽지보내기");
+		
+		ta = new JTextPane();
+		JScrollPane js1 = new JScrollPane(ta);
+		bar = js1.getVerticalScrollBar(); 
+		
+		tf = new JTextField(); 		
+		
+		b[0] = new JButton("콜");
+		b[1] = new JButton("다이");
+		b[2] = new JButton(" ");
+		b[3] = new JButton("나가기");
 		back = Toolkit.getDefaultToolkit().getImage("c:\\download\\SutdaBack.jpg");
 		
-		JPanel p = new JPanel();
-		p.setLayout(new GridLayout(2,2));
+		JPanel p1 = new JPanel();
+		
+		p1.setLayout(new GridLayout(4,1));
 		for(int i=0;i<4;i++)
 		{
 			//b[i].setIcon(new ImageIcon("c:\\image\\b"+i+".png"));
-			p.add(b[i]);
-		}
+			p1.add(b[i]);
+		}		
 		
-		p.setBounds(530,350,250,200);
-		/*playerPanel[0].setBounds(10,15,200,150);
-		playerPanel[1].setBounds(10,170,200,150);
-		playerPanel[2].setBounds(580,15,200,150);
-		playerPanel[3].setBounds(580,170,200,150);
-		playerPanel[4].setBounds(300,400,200,150);*/
-		CombiPanel.setBounds(10,350,250,200);
-		pw.setBounds(10,15,200,150);
-		/*for(int i=0;i<5;i++)
+		CombiPanel.setBounds(10,330,270,220);
+				
+		p1.setBounds(490,400,80,150);
+		js1.setBounds(580,330,200,200);
+		tf.setBounds(580,530,200,20);
+		
+		pw[0].setBounds(10,15,200,150);
+		pw[1].setBounds(10,170,200,150);
+		pw[2].setBounds(580,15,200,150);
+		pw[3].setBounds(580,170,200,150);
+		pw[4].setBounds(290,400,200,150);
+		
+		for(int i=0;i<5;i++)
 		{
-			add(playerPanel[i]);
-		}*/
-		
+			add(pw[i]);
+		}
+				
 		add(CombiPanel);
-		add(p);
-		add(pw);
+		add(js1);
+		add(tf);
+		add(p1);
 		
 	}
 	public void paintComponent(Graphics g)
